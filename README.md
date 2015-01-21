@@ -2,6 +2,8 @@
 
 Flask starter project...
 
+[![Build Status](https://travis-ci.org/realpython/flask-skeleton.svg?branch=master)](https://travis-ci.org/realpython/flask-skeleton)
+
 ## Quick Start
 
 ### Set Environment Variables
