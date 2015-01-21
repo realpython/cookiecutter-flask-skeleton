@@ -1,0 +1,9 @@
+env
+temp
+tmp
+migrations
+
+*.pyc
+*.sqlite
+*.coverage
+.DS_Store
