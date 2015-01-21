@@ -1,6 +1,6 @@
 # Flask Skeleton
 
-Flask starter...
+Flask starter project...
 
 ## Quick Start
 
