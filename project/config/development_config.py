@@ -10,5 +10,4 @@ BCRYPT_LOG_ROUNDS = 13
 WTF_CSRF_ENABLED = False
 DEBUG_TB_ENABLED = True
 DEBUG_TB_INTERCEPT_REDIRECTS = False
-CACHE_TYPE = 'simple'
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'dev.sqlite')
