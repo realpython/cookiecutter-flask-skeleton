@@ -35,3 +35,17 @@ $ python manage.py create_data
 ```sh
 $ python manage.py runserver
 ```
+
+### Testing
+
+Without coverage:
+
+```sh
+$ python manage.py test
+```
+
+With coverage:
+
+```sh
+$ python manage.py cov
+```
