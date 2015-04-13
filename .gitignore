@@ -1,7 +1,6 @@
 env
 temp
 tmp
-migrations
 
 *.pyc
 *.sqlite
