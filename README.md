@@ -17,7 +17,7 @@ $ export APP_SETTINGS="project.config.DevelopmentConfig"
 or
 
 ```sh
-$ export APP_SETTINGS="config.ProductionConfig"
+$ export APP_SETTINGS="project.config.ProductionConfig"
 ```
 
 ### Create DB
