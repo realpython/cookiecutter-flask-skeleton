@@ -22,9 +22,9 @@ class TestUserBlueprint(BaseTestCase):
                 data=dict(email="ad@min.com", password="admin_user"),
                 follow_redirects=True
             )
-            self.assertIn('Welcome', response.data)
-            self.assertIn('Logout', response.data)
-            self.assertIn('Members', response.data)
+            self.assertIn(b'Welcome', response.data)
+            self.assertIn(b'Logout', response.data)
+            self.assertIn(b'Members', response.data)
             self.assertTrue(current_user.email == "ad@min.com")
             self.assertTrue(current_user.is_active())
             self.assertEqual(response.status_code, 200)
@@ -38,18 +38,18 @@ class TestUserBlueprint(BaseTestCase):
                 follow_redirects=True
             )
             response = self.client.get('/logout', follow_redirects=True)
-            self.assertIn('You were logged out. Bye!', response.data)
+            self.assertIn(b'You were logged out. Bye!', response.data)
             self.assertFalse(current_user.is_active())
 
     def test_logout_route_requires_login(self):
         # Ensure logout route requres logged in user.
         response = self.client.get('/logout', follow_redirects=True)
-        self.assertIn('Please log in to access this page', response.data)
+        self.assertIn(b'Please log in to access this page', response.data)
 
     def test_member_route_requires_login(self):
         # Ensure member route requres logged in user.
         response = self.client.get('/members', follow_redirects=True)
-        self.assertIn('Please log in to access this page', response.data)
+        self.assertIn(b'Please log in to access this page', response.data)
 
     def test_validate_success_login_form(self):
         # Ensure correct data validates.
@@ -90,12 +90,12 @@ class TestUserBlueprint(BaseTestCase):
             response = self.client.post('/login', data=dict(
                 email='ad@min.com', password='foo_bar'
             ), follow_redirects=True)
-        self.assertIn('Invalid email and/or password.', response.data)
+        self.assertIn(b'Invalid email and/or password.', response.data)
 
     def test_register_route(self):
         # Ensure about route behaves correctly.
         response = self.client.get('/register', follow_redirects=True)
-        self.assertIn('<h1>Please Register</h1>\n', response.data)
+        self.assertIn(b'<h1>Please Register</h1>\n', response.data)
 
     def test_user_registration(self):
         # Ensure registration behaves correctlys.
@@ -106,7 +106,7 @@ class TestUserBlueprint(BaseTestCase):
                           confirm="testing"),
                 follow_redirects=True
             )
-            self.assertIn('Welcome', response.data)
+            self.assertIn(b'Welcome', response.data)
             self.assertTrue(current_user.email == "test@tester.com")
             self.assertTrue(current_user.is_active())
             self.assertEqual(response.status_code, 200)
