@@ -12,7 +12,7 @@ from project import app
 class TestDevelopmentConfig(TestCase):
 
     def create_app(self):
-        app.config.from_object('config.DevelopmentConfig')
+        app.config.from_object('project.config.DevelopmentConfig')
         return app
 
     def test_app_is_development(self):
@@ -39,7 +39,7 @@ class TestTestingConfig(TestCase):
 class TestProductionConfig(TestCase):
 
     def create_app(self):
-        app.config.from_object('config.ProductionConfig')
+        app.config.from_object('project.config.ProductionConfig')
         return app
 
     def test_app_is_production(self):
