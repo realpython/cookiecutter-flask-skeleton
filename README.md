@@ -8,10 +8,10 @@ Flask starter project...
 
 ### Set Environment Variables
 
-Rename *config_sample.py* to *config.py*, update the config settings, and then run:
+Update *config.py*, and then run:
 
 ```sh
-$ export APP_SETTINGS="config.DevelopmentConfig"
+$ export APP_SETTINGS="project.config.DevelopmentConfig"
 ```
 
 or

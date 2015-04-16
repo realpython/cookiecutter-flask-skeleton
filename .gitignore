@@ -7,4 +7,3 @@ __pycahe__
 *.sqlite
 *.coverage
 .DS_Store
-config.py
