@@ -1,8 +1,10 @@
 env
 temp
 tmp
+__pycahe__
 
 *.pyc
 *.sqlite
 *.coverage
 .DS_Store
+config.py
