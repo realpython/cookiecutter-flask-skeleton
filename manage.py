@@ -8,6 +8,13 @@ import coverage
 from flask.ext.script import Manager
 from flask.ext.migrate import Migrate, MigrateCommand
 
+COV = coverage.coverage(
+        branch=True,
+        include='project/*',
+        omit=['*/__init__.py', '*/config/*']
+    )
+COV.start()
+
 from project import app, db
 from project.models import User
 
@@ -33,23 +40,17 @@ def test():
 @manager.command
 def cov():
     """Runs the unit tests with coverage."""
-    cov = coverage.coverage(
-        branch=True,
-        include='project/*',
-        omit=['*/__init__.py', '*/config/*']
-    )
-    cov.start()
     tests = unittest.TestLoader().discover('tests')
     unittest.TextTestRunner(verbosity=2).run(tests)
-    cov.stop()
-    cov.save()
+    COV.stop()
+    COV.save()
     print('Coverage Summary:')
-    cov.report()
+    COV.report()
     basedir = os.path.abspath(os.path.dirname(__file__))
     covdir = os.path.join(basedir, 'tmp/coverage')
-    cov.html_report(directory=covdir)
+    COV.html_report(directory=covdir)
     print('HTML version: file://%s/index.html' % covdir)
-    cov.erase()
+    COV.erase()
 
 
 @manager.command
