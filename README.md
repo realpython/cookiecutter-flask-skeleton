@@ -6,6 +6,11 @@ Flask starter project...
 
 ## Quick Start
 
+### Basics
+
+1. Activate a virtualenv
+1. Install the requirements
+
 ### Set Environment Variables
 
 Update *config.py*, and then run:
