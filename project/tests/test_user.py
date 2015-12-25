@@ -1,4 +1,4 @@
-# tests/test_user.py
+# project/server/tests/test_user.py
 
 
 import datetime
@@ -7,9 +7,9 @@ import unittest
 from flask.ext.login import current_user
 
 from base import BaseTestCase
-from project import bcrypt
-from project.models import User
-from project.user.forms import LoginForm
+from project.server import bcrypt
+from project.server.models import User
+from project.server.user.forms import LoginForm
 
 
 class TestUserBlueprint(BaseTestCase):
@@ -39,7 +39,7 @@ class TestUserBlueprint(BaseTestCase):
             )
             response = self.client.get('/logout', follow_redirects=True)
             self.assertIn(b'You were logged out. Bye!', response.data)
-            self.assertFalse(current_user.is_active())
+            self.assertFalse(current_user.is_active)
 
     def test_logout_route_requires_login(self):
         # Ensure logout route requres logged in user.

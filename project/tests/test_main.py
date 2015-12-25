@@ -1,4 +1,4 @@
-# tests/test_main.py
+# project/server/tests/test_main.py
 
 
 import unittest

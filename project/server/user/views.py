@@ -1,4 +1,4 @@
-# project/user/views.py
+# project/server/user/views.py
 
 
 #################
@@ -9,9 +9,9 @@ from flask import render_template, Blueprint, url_for, \
     redirect, flash, request
 from flask.ext.login import login_user, logout_user, login_required
 
-from project import bcrypt, db
-from project.models import User
-from project.user.forms import LoginForm, RegisterForm
+from project.server import bcrypt, db
+from project.server.models import User
+from project.server.user.forms import LoginForm, RegisterForm
 
 ################
 #### config ####

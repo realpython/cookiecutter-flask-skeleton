@@ -4,8 +4,6 @@ Flask starter project...
 
 [![Build Status](https://travis-ci.org/realpython/flask-skeleton.svg?branch=master)](https://travis-ci.org/realpython/flask-skeleton)
 
-[![Coverage Status](https://coveralls.io/repos/realpython/flask-skeleton/badge.svg?branch=master&service=github)](https://coveralls.io/github/realpython/flask-skeleton?branch=master)
-
 ## Quick Start
 
 ### Basics
@@ -18,13 +16,13 @@ Flask starter project...
 Update *config.py*, and then run:
 
 ```sh
-$ export APP_SETTINGS="project.config.DevelopmentConfig"
+$ export APP_SETTINGS="project.server.config.DevelopmentConfig"
 ```
 
 or
 
 ```sh
-$ export APP_SETTINGS="project.config.ProductionConfig"
+$ export APP_SETTINGS="project.server.config.ProductionConfig"
 ```
 
 ### Create DB

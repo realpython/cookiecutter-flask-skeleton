@@ -11,12 +11,16 @@ from flask.ext.migrate import Migrate, MigrateCommand
 COV = coverage.coverage(
     branch=True,
     include='project/*',
-    omit=['*/__init__.py', '*/config/*']
+    omit=[
+        'project/tests/*',
+        'project/server/config.py',
+        'project/server/*/__init__.py'
+    ]
 )
 COV.start()
 
-from project import app, db
-from project.models import User
+from project.server import app, db
+from project.server.models import User
 
 
 migrate = Migrate(app, db)
@@ -29,7 +33,7 @@ manager.add_command('db', MigrateCommand)
 @manager.command
 def test():
     """Runs the unit tests without coverage."""
-    tests = unittest.TestLoader().discover('tests')
+    tests = unittest.TestLoader().discover('project/tests', pattern='test*.py')
     result = unittest.TextTestRunner(verbosity=2).run(tests)
     if result.wasSuccessful():
         return 0
@@ -40,17 +44,21 @@ def test():
 @manager.command
 def cov():
     """Runs the unit tests with coverage."""
-    tests = unittest.TestLoader().discover('tests')
-    unittest.TextTestRunner(verbosity=2).run(tests)
-    COV.stop()
-    COV.save()
-    print('Coverage Summary:')
-    COV.report()
-    basedir = os.path.abspath(os.path.dirname(__file__))
-    covdir = os.path.join(basedir, 'tmp/coverage')
-    COV.html_report(directory=covdir)
-    print('HTML version: file://%s/index.html' % covdir)
-    COV.erase()
+    tests = unittest.TestLoader().discover('project/tests')
+    result = unittest.TextTestRunner(verbosity=2).run(tests)
+    if result.wasSuccessful():
+        COV.stop()
+        COV.save()
+        print('Coverage Summary:')
+        COV.report()
+        basedir = os.path.abspath(os.path.dirname(__file__))
+        covdir = os.path.join(basedir, 'tmp/coverage')
+        COV.html_report(directory=covdir)
+        print('HTML version: file://%s/index.html' % covdir)
+        COV.erase()
+        return 0
+    else:
+        return 1
 
 
 @manager.command

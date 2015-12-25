@@ -1,9 +1,9 @@
-# project/models.py
+# project/server/models.py
 
 
 import datetime
 
-from project import db, bcrypt
+from project.server import app, db, bcrypt
 
 
 class User(db.Model):
@@ -18,7 +18,9 @@ class User(db.Model):
 
     def __init__(self, email, password, admin=False):
         self.email = email
-        self.password = bcrypt.generate_password_hash(password)
+        self.password = bcrypt.generate_password_hash(
+            password, app.config.get('BCRYPT_LOG_ROUNDS')
+        )
         self.registered_on = datetime.datetime.now()
         self.admin = admin
 
