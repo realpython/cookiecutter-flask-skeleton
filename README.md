@@ -41,6 +41,9 @@ $ python manage.py create_data
 $ python manage.py runserver
 ```
 
+So access the application at the address [http://localhost:5000/](http://localhost:5000/)
+
+
 ### Testing
 
 Without coverage:
