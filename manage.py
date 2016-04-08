@@ -37,8 +37,7 @@ def test():
     result = unittest.TextTestRunner(verbosity=2).run(tests)
     if result.wasSuccessful():
         return 0
-    else:
-        return 1
+    return 1
 
 
 @manager.command
@@ -57,8 +56,7 @@ def cov():
         print('HTML version: file://%s/index.html' % covdir)
         COV.erase()
         return 0
-    else:
-        return 1
+    return 1
 
 
 @manager.command
