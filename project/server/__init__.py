@@ -25,11 +25,10 @@ app = Flask(
     static_folder='../client/static'
 )
 
+app_settings = 'project.server.config.DevelopmentConfig'
 
 if 'APP_SETTINGS' in os.environ:
     app_settings = os.environ['APP_SETTINGS']
-else:
-    app_settings = 'project.server.config.DevelopmentConfig'
 
 app.config.from_object(app_settings)
 
