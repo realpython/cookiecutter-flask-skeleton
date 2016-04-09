@@ -24,7 +24,14 @@ app = Flask(
     template_folder='../client/templates',
     static_folder='../client/static'
 )
-app.config.from_object(os.environ['APP_SETTINGS'])
+
+
+if 'APP_SETTINGS' in os.environ:
+    app_settings = os.environ['APP_SETTINGS']
+else:
+    app_settings = 'project.server.config.DevelopmentConfig'
+
+app.config.from_object(app_settings)
 
 
 ####################
