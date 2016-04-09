@@ -43,6 +43,16 @@ $ python manage.py runserver
 
 So access the application at the address [http://localhost:5000/](http://localhost:5000/)
 
+Or
+
+### Run the Application in a specific port enabling connections via ip address
+
+```sh
+$ python manage.py runserver -h 0.0.0.0 -p 80
+```
+
+So access the application at the address [http://127.0.0.1:8080/](http://127.0.0.1:8080/)
+
 
 ### Testing
 
