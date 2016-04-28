@@ -26,11 +26,7 @@ app = Flask(
 )
 
 
-if 'APP_SETTINGS' in os.environ:
-    app_settings = os.environ['APP_SETTINGS']
-else:
-    app_settings = 'project.server.config.DevelopmentConfig'
-
+app_settings = os.getenv('APP_SETTINGS', 'project.server.config.DevelopmentConfig')
 app.config.from_object(app_settings)
 
 
