@@ -3,7 +3,7 @@ env
 venv
 temp
 tmp
-__pycahe__
+__pycache__
 
 *.pyc
 *.sqlite
