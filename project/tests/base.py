@@ -1,7 +1,7 @@
 # project/server/tests/base.py
 
 
-from flask.ext.testing import TestCase
+from flask_testing import TestCase
 
 from project.server import app, db
 from project.server.models import User

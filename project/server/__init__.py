@@ -8,11 +8,11 @@
 import os
 
 from flask import Flask, render_template
-from flask.ext.login import LoginManager
-from flask.ext.bcrypt import Bcrypt
-from flask.ext.debugtoolbar import DebugToolbarExtension
+from flask_login import LoginManager
+from flask_bcrypt import Bcrypt
+from flask_debugtoolbar import DebugToolbarExtension
 from flask_bootstrap import Bootstrap
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 
 
 ################
