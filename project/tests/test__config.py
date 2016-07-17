@@ -4,7 +4,7 @@
 import unittest
 
 from flask import current_app
-from flask.ext.testing import TestCase
+from flask_testing import TestCase
 
 from project.server import app
 
