@@ -26,11 +26,7 @@ app = Flask(
 )
 
 
-if 'APP_SETTINGS' in os.environ:
-    app_settings = os.environ['APP_SETTINGS']
-else:
-    app_settings = 'project.server.config.DevelopmentConfig'
-
+app_settings = os.getenv('APP_SETTINGS', 'project.server.config.DevelopmentConfig')
 app.config.from_object(app_settings)
 
 
@@ -74,6 +70,11 @@ def load_user(user_id):
 ########################
 #### error handlers ####
 ########################
+
+@app.errorhandler(401)
+def forbidden_page(error):
+    return render_template("errors/401.html"), 401
+
 
 @app.errorhandler(403)
 def forbidden_page(error):
