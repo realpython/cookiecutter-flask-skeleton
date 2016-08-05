@@ -29,7 +29,7 @@ def register():
     form = RegisterForm(request.form)
     if form.validate_on_submit():
         user = User(
-            email=form.email.data,
+            username=form.username.data,
             password=form.password.data
         )
         db.session.add(user)
@@ -47,14 +47,14 @@ def register():
 def login():
     form = LoginForm(request.form)
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
+        user = User.query.filter_by(username=form.username.data).first()
         if user and bcrypt.check_password_hash(
                 user.password, request.form['password']):
             login_user(user)
             flash('You are logged in. Welcome!', 'success')
             return redirect(url_for('user.members'))
         else:
-            flash('Invalid email and/or password.', 'danger')
+            flash('Invalid username and/or password.', 'danger')
             return render_template('user/login.html', form=form)
     return render_template('user/login.html', title='Please Login', form=form)
 
