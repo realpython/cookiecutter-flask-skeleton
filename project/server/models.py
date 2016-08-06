@@ -18,7 +18,7 @@ class User(db.Model):
     admin = db.Column(db.Boolean, nullable=False, default=False)
     last_login = db.Column(db.DateTime, nullable=False)
 
-    def __init__(self, username, email, password, admin=False):
+    def __init__(self, username, email, password, admin=False, superuser=False):
         self.username = username
         self.email = email
         self.password = bcrypt.generate_password_hash(

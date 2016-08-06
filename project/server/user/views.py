@@ -5,6 +5,7 @@
 #### imports ####
 #################
 
+import datetime
 from flask import render_template, Blueprint, url_for, \
     redirect, flash, request
 from flask_login import login_user, logout_user, login_required
@@ -51,6 +52,9 @@ def login():
         if user and bcrypt.check_password_hash(
                 user.password, request.form['password']):
             login_user(user)
+            user.last_login = datetime.datetime.utcnow()
+            db.session.commit()
+
             flash('You are logged in. Welcome!', 'success')
             return redirect(url_for('user.members'))
         else:
