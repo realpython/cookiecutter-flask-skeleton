@@ -5,10 +5,16 @@ from flask_wtf import Form
 from wtforms import StringField, PasswordField
 from wtforms.validators import DataRequired, Length, EqualTo
 
+from project.server import db
+from project.server.models import User
+
 
 class LoginForm(Form):
     username = StringField('Username', [DataRequired()])
     password = PasswordField('Password', [DataRequired()])
+
+    def get_user(self):
+        return db.session.query(User).filter_by(username=self.username.data).first()
 
 
 class RegisterForm(Form):

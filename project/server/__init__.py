@@ -7,12 +7,13 @@
 
 import os
 
-from flask import Flask, render_template
+from flask import Flask, render_template, session, request
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
 from flask_debugtoolbar import DebugToolbarExtension
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
+from flask_babelex import Babel
 
 
 ################
@@ -40,7 +41,7 @@ bcrypt = Bcrypt(app)
 toolbar = DebugToolbarExtension(app)
 bootstrap = Bootstrap(app)
 db = SQLAlchemy(app)
-
+babel = Babel(app)
 
 ###################
 ### blueprints ####
@@ -48,17 +49,31 @@ db = SQLAlchemy(app)
 
 from project.server.user.views import user_blueprint
 from project.server.main.views import main_blueprint
+from project.server.admin import admin_blueprint
 app.register_blueprint(user_blueprint)
 app.register_blueprint(main_blueprint)
-
+app.register_blueprint(admin_blueprint)
 
 ###################
-### flask-login ####
+### flask-babel ###
+###################
+
+@babel.localeselector
+def get_locale():
+    override = request.args.get('lang')
+
+    if override:
+        session['lang'] = override
+
+    return session.get('lang', 'fr')
+
+###################
+### flask-login ###
 ###################
 
 from project.server.models import User
 
-login_manager.login_view = "user.login"
+login_manager.login_view = "user_model.login"
 login_manager.login_message_category = 'danger'
 
 

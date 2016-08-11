@@ -18,13 +18,13 @@ class User(db.Model):
     admin = db.Column(db.Boolean, nullable=False, default=False)
     last_login = db.Column(db.DateTime, nullable=False)
 
-    def __init__(self, username, email, password, admin=False, superuser=False):
-        self.username = username
-        self.email = email
+    def __init__(self, **kwargs):
+        self.username = kwargs.get('username')
+        self.email = kwargs.get('email', None)
         self.password = bcrypt.generate_password_hash(
-                        password, app.config.get('BCRYPT_LOG_ROUNDS'))
+                        kwargs.get('password'), app.config.get('BCRYPT_LOG_ROUNDS'))
         self.registered_on = datetime.datetime.now()
-        self.admin = admin
+        self.admin = kwargs.get('admin')
         self.last_login = datetime.datetime.now()
 
     def is_authenticated(self):
@@ -38,6 +38,9 @@ class User(db.Model):
 
     def get_id(self):
         return self.id
+
+    def is_admin(self):
+        return self.admin
 
     def __repr__(self):
         return '<User {0}>'.format(self.username)

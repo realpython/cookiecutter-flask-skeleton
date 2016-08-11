@@ -18,7 +18,7 @@ from project.server.user.forms import LoginForm, RegisterForm
 #### config ####
 ################
 
-user_blueprint = Blueprint('user', __name__,)
+user_blueprint = Blueprint('user_model', __name__,)
 
 
 ################
@@ -39,7 +39,7 @@ def register():
         login_user(user)
 
         flash('Thank you for registering.', 'success')
-        return redirect(url_for("user.members"))
+        return redirect(url_for("user_model.members"))
 
     return render_template('user/register.html', form=form)
 
@@ -56,7 +56,7 @@ def login():
             db.session.commit()
 
             flash('You are logged in. Welcome!', 'success')
-            return redirect(url_for('user.members'))
+            return redirect(url_for('user_model.members'))
         else:
             flash('Invalid username and/or password.', 'danger')
             return render_template('user/login.html', form=form)
