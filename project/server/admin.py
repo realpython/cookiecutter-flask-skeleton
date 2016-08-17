@@ -27,10 +27,13 @@ class MyModelView(ModelView):
 
 
 class MyAdminIndexView(AdminIndexView):
-
-
     @expose('/')
     def index(self):
+        if current_user.is_authenticated: #if user is authenticated
+            user = current_user.admin
+            if user == False: #if user is not admin, user is logout automaticaly
+                logout_user()
+                return redirect(url_for('admin.login_view'))
         if not current_user.is_authenticated:
             return redirect(url_for('admin.login_view'))
         return super(MyAdminIndexView, self).index()
@@ -42,7 +45,7 @@ class MyAdminIndexView(AdminIndexView):
         form = LoginForm(request.form)
         if helpers.validate_form_on_submit(form):
             user = form.get_user()
-            if user.admin == True:
+            if user.admin == True: #if user is admin, user is_authenticated and can use admin interface
                 login_user(user)
             else:
                 flash('You are not admin to enter here!', 'danger')
