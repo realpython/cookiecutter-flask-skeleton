@@ -2,11 +2,14 @@
 
 
 import os
+import sys
+import getpass
 import unittest
 import coverage
 
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
+from utils import colors
 
 COV = coverage.coverage(
     branch=True,
@@ -74,8 +77,30 @@ def drop_db():
 @manager.command
 def create_admin():
     """Creates the admin user."""
-    db.session.add(User(email='ad@min.com', password='admin', admin=True))
+    if sys.version_info.major == 3:
+        username = input('Your admin username (default: admin) : ') or 'admin'
+        email = input('Your admin email address (default: None) : ') or None
+        password = getpass.getpass('Your password : ')
+        confirm = getpass.getpass('Confirm password : ')
+
+        while password != confirm:
+            confirm = getpass.getpass('Confirm password : ')
+
+    else:
+        username = raw_input('Your admin username (default: admin) : ') or 'admin'
+        email = raw_input('Your admin email address (default: None) : ') or None
+        password = getpass.getpass('Your admin password : ')
+        confirm = getpass.getpass('Confirm password : ')
+
+        while password != confirm:
+            confirm = getpass.getpass('Confirm password : ')
+
+
+    db.session.add(User(username=username, email=email, password=password, admin=True))
     db.session.commit()
+    print('Admin user created...\t\t\t', end="", flush=True)
+    print("{green}Ok{end}".format(green=colors.OKGREEN, end=colors.ENDC))
+
 
 
 @manager.command

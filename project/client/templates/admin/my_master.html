@@ -1,0 +1,31 @@
+{% extends 'admin/base.html' %}
+
+
+{% block access_control %}
+{% if current_user.is_authenticated %}
+<div class="btn-group pull-right" style="margin-top: 0.5%">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="glyphicon glyphicon-user"></span> {{ current_user.username }} <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li><a href="{{ url_for('admin.logout_view') }}"> <span class="glyphicon glyphicon-log-out">&nbsp;Log out</a></li>
+        </ul>
+    </div>
+    <div class="btn-group pull-right" style="margin-top: 0.5%">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="glyphicon glyphicon-flag"></span> Language <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+            <li><a href="/admin/?lang=en">English</a></li>
+            <li><a href="/admin/?lang=cs">Czech</a></li>
+            <li><a href="/admin/?lang=de">German</a></li>
+            <li><a href="/admin/?lang=es">Spanish</a></li>
+            <li><a href="/admin/?lang=fa">Farsi</a></li>
+            <li><a href="/admin/?lang=fr">French</a></li>
+            <li><a href="/admin/?lang=pt">Portuguese</a></li>
+            <li><a href="/admin/?lang=ru">Russian</a></li>
+            <li><a href="/admin/?lang=pa">Punjabi</a></li>
+        </ul>
+    </div>
+{% endif %}
+{% endblock %}

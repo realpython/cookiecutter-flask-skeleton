@@ -5,6 +5,7 @@
 #### imports ####
 #################
 
+import datetime
 from flask import render_template, Blueprint, url_for, \
     redirect, flash, request
 from flask_login import login_user, logout_user, login_required
@@ -17,7 +18,7 @@ from project.server.user.forms import LoginForm, RegisterForm
 #### config ####
 ################
 
-user_blueprint = Blueprint('user', __name__,)
+user_blueprint = Blueprint('user_model', __name__,)
 
 
 ################
@@ -29,6 +30,7 @@ def register():
     form = RegisterForm(request.form)
     if form.validate_on_submit():
         user = User(
+            username=form.username.data,
             email=form.email.data,
             password=form.password.data
         )
@@ -38,7 +40,7 @@ def register():
         login_user(user)
 
         flash('Thank you for registering.', 'success')
-        return redirect(url_for("user.members"))
+        return redirect(url_for("user_model.members"))
 
     return render_template('user/register.html', form=form)
 
@@ -47,14 +49,17 @@ def register():
 def login():
     form = LoginForm(request.form)
     if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
+        user = User.query.filter_by(username=form.username.data).first()
         if user and bcrypt.check_password_hash(
                 user.password, request.form['password']):
             login_user(user)
+            user.last_login = datetime.datetime.utcnow()
+            db.session.commit()
+
             flash('You are logged in. Welcome!', 'success')
-            return redirect(url_for('user.members'))
+            return redirect(url_for('user_model.members'))
         else:
-            flash('Invalid email and/or password.', 'danger')
+            flash('Invalid username and/or password.', 'danger')
             return render_template('user/login.html', form=form)
     return render_template('user/login.html', title='Please Login', form=form)
 
