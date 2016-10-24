@@ -72,7 +72,7 @@ def load_user(user_id):
 ########################
 
 @app.errorhandler(401)
-def forbidden_page(error):
+def unauthorized_page(error):
     return render_template("errors/401.html"), 401
 
 
