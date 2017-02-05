@@ -14,4 +14,4 @@ script:
   - python manage.py cov
 
 after_success:
-  coveralls
+  - coveralls
