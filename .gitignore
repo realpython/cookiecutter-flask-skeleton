@@ -1,8 +1,6 @@
 .env
 env
 venv
-temp
-tmp
 __pycache__
 
 *.pyc
