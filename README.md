@@ -8,8 +8,21 @@ Flask starter project...
 
 ### Basics
 
-1. Create and activate a virtualenv
-1. Install the requirements
+#### Create virtualenv
+```sh
+virtualenv python_3
+```
+
+#### Activate virtualenv
+```sh
+source python_3/bin/activate
+```
+
+#### Install requirements
+
+```sh
+pip install -r requirements.txt
+```
 
 ### Set Environment Variables
 
