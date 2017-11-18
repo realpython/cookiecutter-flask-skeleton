@@ -1,10 +1,6 @@
 # project/server/user/views.py
 
 
-#################
-#### imports ####
-#################
-
 from flask import render_template, Blueprint, url_for, \
     redirect, flash, request
 from flask_login import login_user, logout_user, login_required
@@ -13,16 +9,9 @@ from project.server import bcrypt, db
 from project.server.models import User
 from project.server.user.forms import LoginForm, RegisterForm
 
-################
-#### config ####
-################
 
 user_blueprint = Blueprint('user', __name__,)
 
-
-################
-#### routes ####
-################
 
 @user_blueprint.route('/register', methods=['GET', 'POST'])
 def register():

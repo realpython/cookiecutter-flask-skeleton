@@ -20,7 +20,7 @@ class DevelopmentConfig(BaseConfig):
     DEBUG = True
     BCRYPT_LOG_ROUNDS = 4
     WTF_CSRF_ENABLED = False
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'dev.sqlite')
+    SQLALCHEMY_DATABASE_URI = f'sqlite:///{os.path.join(basedir, "dev.db")}'
     DEBUG_TB_ENABLED = True
 
 

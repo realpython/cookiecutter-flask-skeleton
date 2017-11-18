@@ -3,8 +3,10 @@
 
 from flask_testing import TestCase
 
-from project.server import app, db
+from project.server import db, create_app
 from project.server.models import User
+
+app = create_app()
 
 
 class BaseTestCase(TestCase):
