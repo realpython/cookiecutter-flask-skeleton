@@ -4,8 +4,9 @@ venv
 __pycache__
 
 *.pyc
-*.sqlite
+*.db
 *.coverage
 .DS_Store
 env.sh
 migrations
+htmlcov
