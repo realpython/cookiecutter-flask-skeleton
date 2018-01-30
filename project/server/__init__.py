@@ -21,7 +21,7 @@ db = SQLAlchemy()
 migrate = Migrate()
 
 
-def create_app():
+def create_app(script_info=None):
 
     # instantiate the app
     app = Flask(
@@ -76,5 +76,8 @@ def create_app():
     @app.errorhandler(500)
     def server_error_page(error):
         return render_template('errors/500.html'), 500
+
+    # shell context for flask cli
+    app.shell_context_processor({'app': app, 'db': db})
 
     return app

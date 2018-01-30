@@ -2,13 +2,16 @@
 
 
 import unittest
-import coverage
 
-from flask_script import Manager
-from flask_migrate import Migrate, MigrateCommand
+import coverage
+from flask.cli import FlaskGroup
 
 from project.server import create_app, db
 from project.server.models import User
+
+
+app = create_app()
+cli = FlaskGroup(create_app=create_app)
 
 # code coverage
 COV = coverage.coverage(
@@ -22,15 +25,33 @@ COV = coverage.coverage(
 )
 COV.start()
 
-app = create_app()
-migrate = Migrate(app, db)
-manager = Manager(app)
+@cli.command()
+def create_db():
+    db.drop_all()
+    db.create_all()
+    db.session.commit()
 
-# migrations
-manager.add_command('db', MigrateCommand)
+
+@cli.command()
+def drop_db():
+    """Drops the db tables."""
+    db.drop_all()
 
 
-@manager.command
+@cli.command()
+def create_admin():
+    """Creates the admin user."""
+    db.session.add(User(email='ad@min.com', password='admin', admin=True))
+    db.session.commit()
+
+
+@cli.command()
+def create_data():
+    """Creates sample data."""
+    pass
+
+
+@cli.command()
 def test():
     """Runs the unit tests without test coverage."""
     tests = unittest.TestLoader().discover('project/tests', pattern='test*.py')
@@ -40,7 +61,7 @@ def test():
     return 1
 
 
-@manager.command
+@cli.command()
 def cov():
     """Runs the unit tests with coverage."""
     tests = unittest.TestLoader().discover('project/tests')
@@ -56,30 +77,6 @@ def cov():
     return 1
 
 
-@manager.command
-def create_db():
-    """Creates the db tables."""
-    db.create_all()
-
-
-@manager.command
-def drop_db():
-    """Drops the db tables."""
-    db.drop_all()
-
-
-@manager.command
-def create_admin():
-    """Creates the admin user."""
-    db.session.add(User(email='ad@min.com', password='admin', admin=True))
-    db.session.commit()
-
-
-@manager.command
-def create_data():
-    """Creates sample data."""
-    pass
-
 
 if __name__ == '__main__':
-    manager.run()
+    cli()

@@ -37,17 +37,19 @@ $ python manage.py create_data
 
 ### Run the Application
 
+With debug mode:
+
 ```sh
-$ python manage.py runserver
+$ export FLASK_DEBUG=1 && python manage.py run
+```
+
+Without debug mode:
+
+```sh
+$ export FLASK_DEBUG=0 && python manage.py run
 ```
 
 Access the application at the address [http://localhost:5000/](http://localhost:5000/)
-
-> Want to specify a different port?
-
-> ```sh
-> $ python manage.py runserver -h 0.0.0.0 -p 8080
-> ```
 
 ### Testing
 
