@@ -13,17 +13,17 @@ Flask starter project...
 
 ### Set Environment Variables
 
-Update *project/server/config.py*, and then run:
+Update *project/server/config.py*, 
+and then define your application configuration in  *.env*
+
+
+Eg for development with debug mode enabled:
 
 ```sh
-$ export APP_SETTINGS="project.server.config.DevelopmentConfig"
+APP_SETTINGS="project.server.config.DevelopmentConfig"
+FLASK_DEBUG=1
 ```
 
-or
-
-```sh
-$ export APP_SETTINGS="project.server.config.ProductionConfig"
-```
 
 ### Create DB
 
@@ -37,16 +37,9 @@ $ python manage.py create_data
 
 ### Run the Application
 
-With debug mode:
 
 ```sh
-$ export FLASK_DEBUG=1 && python manage.py run
-```
-
-Without debug mode:
-
-```sh
-$ export FLASK_DEBUG=0 && python manage.py run
+$ python manage.py run
 ```
 
 Access the application at the address [http://localhost:5000/](http://localhost:5000/)
