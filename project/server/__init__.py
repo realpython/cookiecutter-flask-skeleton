@@ -58,8 +58,6 @@ def create_app(script_info=None):
     def load_user(user_id):
         return User.query.filter(User.id == int(user_id)).first()
 
-        return app
-
     # error handlers
     @app.errorhandler(401)
     def unauthorized_page(error):
