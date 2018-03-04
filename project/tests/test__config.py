@@ -2,6 +2,7 @@
 
 
 import unittest
+import os
 
 from flask import current_app
 from flask_testing import TestCase
@@ -47,6 +48,10 @@ class TestProductionConfig(TestCase):
         self.assertTrue(app.config['DEBUG_TB_ENABLED'] is False)
         self.assertTrue(app.config['WTF_CSRF_ENABLED'] is True)
         self.assertTrue(app.config['BCRYPT_LOG_ROUNDS'] == 13)
+
+    def test_secret_key_has_been_set(self):
+        self.assertTrue(app.secret_key == os.getenv(
+            'SECRET_KEY', default='my_precious'))
 
 
 if __name__ == '__main__':
