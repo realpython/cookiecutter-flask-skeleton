@@ -11,22 +11,16 @@ Flask starter project...
 1. Create and activate a virtualenv
 1. Install the requirements
 
+### Set Environment Variables
 
-### Configuring
-
-Inspect and update `project/server/config.py`.
-
-
-### Setting Environment Variables
-
-Eg: for using the development config with debug mode enabled
+Update *project/server/config.py*, and then run:
 
 ```sh
 $ export APP_SETTINGS="project.server.config.DevelopmentConfig"
 $ export FLASK_DEBUG=1
 ```
 
-Alternatively using pipenv or python-dotenv you can define your application configuration in the `.env` file.
+Using pipenv or python-dotenv? Use the *.env* file to set environment variables:
 
 ```sh
 APP_SETTINGS="project.server.config.DevelopmentConfig"
