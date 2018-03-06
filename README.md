@@ -11,11 +11,29 @@ Flask starter project...
 1. Create and activate a virtualenv
 1. Install the requirements
 
+
+
+### Cookiecutter Template
+
+Install cookiecutter with your package manager:
+
+```sh
+$ pip install cookiecutter
+```
+
+Create your app with:
+
+```sh
+$ cookiecutter https://github.com/vuLgAr/flask-skeleton.git --checkout cookiecutter
+```
+
+
 ### Set Environment Variables
 
 Update *project/server/config.py*, and then run:
 
 ```sh
+$ export APP_NAME="Flask Skeleton"
 $ export APP_SETTINGS="project.server.config.DevelopmentConfig"
 $ export FLASK_DEBUG=1
 ```
@@ -23,6 +41,7 @@ $ export FLASK_DEBUG=1
 Using pipenv or python-dotenv? Use the *.env* file to set environment variables:
 
 ```sh
+APP_NAME="Flask Skeleton"
 APP_SETTINGS="project.server.config.DevelopmentConfig"
 FLASK_DEBUG=1
 ```
