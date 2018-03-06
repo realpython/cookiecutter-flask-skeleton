@@ -68,14 +68,14 @@ $ python manage.py cov
 
 Alternatively you can use the cookiecutter template.
 
-Install cookiecutter with your package manager:
+First, get Cookiecutter:
 
 ```sh
 $ pip install cookiecutter
 ```
 
-Create your app with:
+Now run it against this repo:
 
 ```sh
-$ cookiecutter https://github.com/vuLgAr/flask-skeleton.git --checkout cookiecutter
+$ cookiecutter https://github.com/realpython/flask-skeleton.git
 ```
