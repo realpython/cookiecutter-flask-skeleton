@@ -8,24 +8,9 @@ Flask starter project...
 
 ### Basics
 
+1. cd into the `{{cookiecutter.app_slug}}` directory.
 1. Create and activate a virtualenv
 1. Install the requirements
-
-
-
-### Cookiecutter Template
-
-Install cookiecutter with your package manager:
-
-```sh
-$ pip install cookiecutter
-```
-
-Create your app with:
-
-```sh
-$ cookiecutter https://github.com/vuLgAr/flask-skeleton.git --checkout cookiecutter
-```
 
 
 ### Set Environment Variables
@@ -77,4 +62,20 @@ With coverage:
 
 ```sh
 $ python manage.py cov
+```
+
+### Cookiecutter Template
+
+Alternatively you can use the cookiecutter template.
+
+Install cookiecutter with your package manager:
+
+```sh
+$ pip install cookiecutter
+```
+
+Create your app with:
+
+```sh
+$ cookiecutter https://github.com/vuLgAr/flask-skeleton.git --checkout cookiecutter
 ```
