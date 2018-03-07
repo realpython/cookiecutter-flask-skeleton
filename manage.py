@@ -11,7 +11,7 @@ from project.server.models import User
 
 
 app = create_app()
-cli = FlaskGroup(create_app=app)
+cli = FlaskGroup(create_app=create_app)
 
 # code coverage
 COV = coverage.coverage(
