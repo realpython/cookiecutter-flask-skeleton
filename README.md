@@ -1,6 +1,6 @@
 # Flask Skeleton
 
-Flask starter project...
+Flask starter project for [Cookiecutter](https://github.com/audreyr/cookiecutter).
 
 [![Build Status](https://travis-ci.org/realpython/flask-skeleton.svg?branch=master)](https://travis-ci.org/realpython/flask-skeleton)
 
@@ -8,10 +8,19 @@ Flask starter project...
 
 ### Basics
 
-1. cd into the `{{cookiecutter.app_slug}}` directory.
-1. Create and activate a virtualenv
-1. Install the requirements
+Install Cookiecutter globally:
 
+```sh
+$ pip install cookiecutter
+```
+
+Generate the boilerplate:
+
+```sh
+$ cookiecutter https://github.com/realpython/flask-skeleton.git
+```
+
+Create and activate a virtual environment, and then install the requirements.
 
 ### Set Environment Variables
 
@@ -62,20 +71,4 @@ With coverage:
 
 ```sh
 $ python manage.py cov
-```
-
-### Cookiecutter Template
-
-Alternatively you can use the cookiecutter template.
-
-First, get Cookiecutter:
-
-```sh
-$ pip install cookiecutter
-```
-
-Now run it against this repo:
-
-```sh
-$ cookiecutter https://github.com/realpython/flask-skeleton.git
 ```
