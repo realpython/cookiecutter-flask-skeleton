@@ -6,6 +6,9 @@ python:
   - "3.4"
   - "2.7"
 
+before_install: 
+  - "cd {{cookiecutter.app_slug}}"
+
 install:
   - "pip install pipenv"
   - "pipenv install --dev"
