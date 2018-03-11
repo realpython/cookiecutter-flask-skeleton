@@ -14,4 +14,5 @@ install:
   - "pipenv install --dev"
 
 script:
+  - flake8 .
   - python manage.py cov
