@@ -21,6 +21,7 @@ flask-wtf = "*"
 coverage = "*"
 flask-debugtoolbar = "*"
 flask-testing = "*"
+"flake8" = "*"
 
 
 [requires]
