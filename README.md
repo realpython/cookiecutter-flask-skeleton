@@ -2,7 +2,7 @@
 
 Flask starter project for [Cookiecutter](https://github.com/audreyr/cookiecutter).
 
-[![Build Status](https://travis-ci.org/realpython/flask-skeleton.svg?branch=master)](https://travis-ci.org/realpython/flask-skeleton)
+[![Build Status](https://travis-ci.org/realpython/cookiecutter-flask-skeleton.svg?branch=master)](https://travis-ci.org/realpython/cookiecutter-flask-skeleton)
 
 ## Quick Start
 
