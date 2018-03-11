@@ -3,19 +3,18 @@
 {% block content %}
 
   <header class="content-header">
-    <h1>Please login</h1>
+    <h1>Login</h1>
+    <hr><br>
   </header>
 
   <br>
 
   <form class="form" role="form" method="post" action="">
-
     {{ form.csrf_token }}
     {{ form.hidden_tag() }}
     {{ wtf.form_errors(form, hiddens="only") }}
 
     <div class="col-lg-4 col-sm-4">
-
       {{ wtf.form_field(form.email) }}
       {{ wtf.form_field(form.password) }}
 
@@ -23,7 +22,6 @@
       <br><br>
       <p>Need to <a href="{{ url_for('user.register') }}">Register</a>?</p>
     </div>
-
   </form>
 
 {% endblock %}
