@@ -25,9 +25,11 @@ COV = coverage.coverage(
 )
 COV.start()
 
+
 @app.shell_context_processor
 def make_shell_context():
     return dict(app=app, db=db)
+
 
 @cli.command()
 def create_db():
@@ -79,7 +81,6 @@ def cov():
         COV.erase()
         return 0
     return 1
-
 
 
 if __name__ == '__main__':
