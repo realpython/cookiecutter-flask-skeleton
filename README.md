@@ -76,11 +76,11 @@ $ python manage.py cov
 Run flake8 on the app:
 
 ```sh
-$ python manage.py flake
+$ python manage.py flake project
 ```
 
 or
 
 ```sh
-$ flake8 .
+$ flake8 project
 ```

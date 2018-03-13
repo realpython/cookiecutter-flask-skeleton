@@ -87,7 +87,7 @@ def cov():
 @cli.command()
 def flake():
     """Runs flake8 on the project."""
-    subprocess.run(['flake8', '.'])
+    subprocess.run(['flake8', 'project'])
 
 
 if __name__ == '__main__':
