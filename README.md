@@ -73,16 +73,14 @@ With coverage:
 $ python manage.py cov
 ```
 
-###
-
 Run flake8 on the app:
 
 ```sh
 $ python manage.py flake
 ```
 
-or 
+or
 
-```
+```sh
 $ flake8 .
 ```
