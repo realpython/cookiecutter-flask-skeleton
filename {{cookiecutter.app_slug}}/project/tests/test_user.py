@@ -96,7 +96,7 @@ class TestUserBlueprint(BaseTestCase):
     def test_register_route(self):
         # Ensure about route behaves correctly.
         response = self.client.get('/register', follow_redirects=True)
-        self.assertIn(b'<h1>Please Register</h1>\n', response.data)
+        self.assertIn(b'<h1>Register</h1>\n', response.data)
 
     def test_user_registration(self):
         # Ensure registration behaves correctlys.

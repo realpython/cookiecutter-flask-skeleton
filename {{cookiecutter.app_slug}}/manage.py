@@ -4,11 +4,12 @@
 import unittest
 
 import coverage
+
 from flask.cli import FlaskGroup
 
 from project.server import create_app, db
 from project.server.models import User
-
+import subprocess
 
 app = create_app()
 cli = FlaskGroup(create_app=create_app)
@@ -25,9 +26,11 @@ COV = coverage.coverage(
 )
 COV.start()
 
+
 @app.shell_context_processor
 def make_shell_context():
     return dict(app=app, db=db)
+
 
 @cli.command()
 def create_db():
@@ -80,6 +83,11 @@ def cov():
         return 0
     return 1
 
+
+@cli.command()
+def flake():
+    """Runs flake8 on the project."""
+    subprocess.run(['flake8', '.'])
 
 
 if __name__ == '__main__':

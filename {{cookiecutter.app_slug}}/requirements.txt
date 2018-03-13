@@ -1,4 +1,6 @@
+configparser==3.5.0
 coverage==4.5.1
+flake8==3.5.0
 Flask==0.12.2
 Flask-Bcrypt==0.7.1
 Flask-Bootstrap==3.3.7.1

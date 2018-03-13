@@ -14,6 +14,7 @@ flask-login = "*"
 flask-migrate = "*"
 flask-sqlalchemy = "*"
 flask-wtf = "*"
+configparser = "*"
 
 
 [dev-packages]
@@ -21,6 +22,7 @@ flask-wtf = "*"
 coverage = "*"
 flask-debugtoolbar = "*"
 flask-testing = "*"
+"flake8" = "*"
 
 
 [requires]
