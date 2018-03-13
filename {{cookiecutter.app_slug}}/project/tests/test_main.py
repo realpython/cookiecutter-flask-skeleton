@@ -19,7 +19,7 @@ class TestMainBlueprint(BaseTestCase):
         # Ensure about route behaves correctly.
         response = self.client.get('/about', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'About', response.data)
+        self.assertIn(b'Aboot', response.data)
 
     def test_404(self):
         # Ensure 404 error is handled.
