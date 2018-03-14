@@ -75,4 +75,7 @@ def create_app(script_info=None):
     def server_error_page(error):
         return render_template('errors/500.html'), 500
 
+    # shell context for flask cli
+    app.shell_context_processor({'app': app, 'db': db})
+
     return app
