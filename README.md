@@ -17,7 +17,7 @@ $ pip install cookiecutter
 Generate the boilerplate:
 
 ```sh
-$ cookiecutter https://github.com/realpython/flask-skeleton.git
+$ cookiecutter https://github.com/realpython/cookiecutter-flask-skeleton.git
 ```
 
 Create and activate a virtual environment, and then install the requirements.
@@ -32,7 +32,7 @@ $ export APP_SETTINGS="project.server.config.DevelopmentConfig"
 $ export FLASK_DEBUG=1
 ```
 
-Using pipenv or python-dotenv? Use the *.env* file to set environment variables:
+Using [Pipenv](https://docs.pipenv.org/) or [python-dotenv](https://github.com/theskumar/python-dotenv)? Use the *.env* file to set environment variables:
 
 ```sh
 APP_NAME="Flask Skeleton"

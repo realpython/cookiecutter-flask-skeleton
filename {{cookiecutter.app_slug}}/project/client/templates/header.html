@@ -9,8 +9,8 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <!-- Main Navigation -->
       <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ url_for('main.about') }}">About<span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('main.about') }}">About</a>
         </li>
         {% if current_user.is_authenticated %}
         <li class="nav-item">
