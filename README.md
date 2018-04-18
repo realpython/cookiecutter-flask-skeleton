@@ -6,8 +6,6 @@ Flask starter project for [Cookiecutter](https://github.com/audreyr/cookiecutter
 
 ## Quick Start
 
-### Basics
-
 Install Cookiecutter globally:
 
 ```sh
@@ -20,67 +18,7 @@ Generate the boilerplate:
 $ cookiecutter https://github.com/realpython/cookiecutter-flask-skeleton.git
 ```
 
-Create and activate a virtual environment, and then install the requirements.
+Once generated, review the setup guides, within the newly created project directory, to configure the app:
 
-### Set Environment Variables
-
-Update *project/server/config.py*, and then run:
-
-```sh
-$ export APP_NAME="Flask Skeleton"
-$ export APP_SETTINGS="project.server.config.DevelopmentConfig"
-$ export FLASK_DEBUG=1
-```
-
-Using [Pipenv](https://docs.pipenv.org/) or [python-dotenv](https://github.com/theskumar/python-dotenv)? Use the *.env* file to set environment variables:
-
-```sh
-APP_NAME="Flask Skeleton"
-APP_SETTINGS="project.server.config.DevelopmentConfig"
-FLASK_DEBUG=1
-```
-
-### Create DB
-
-```sh
-$ python manage.py create_db
-$ python manage.py db init
-$ python manage.py db migrate
-$ python manage.py create_admin
-$ python manage.py create_data
-```
-
-### Run the Application
-
-
-```sh
-$ python manage.py run
-```
-
-Access the application at the address [http://localhost:5000/](http://localhost:5000/)
-
-### Testing
-
-Without coverage:
-
-```sh
-$ python manage.py test
-```
-
-With coverage:
-
-```sh
-$ python manage.py cov
-```
-
-Run flake8 on the app:
-
-```sh
-$ python manage.py flake
-```
-
-or
-
-```sh
-$ flake8 project
-```
+1. [setup-with-docker.md](%7B%7Bcookiecutter.app_slug%7D%7D/setup-with-docker.md)
+1. [setup-without-docker.md](%7B%7Bcookiecutter.app_slug%7D%7D/setup-without-docker.md)
