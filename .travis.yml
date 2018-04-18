@@ -6,13 +6,30 @@ python:
   - "3.4"
   - "2.7"
 
-before_install: 
+sudo: required
+
+services:
+  - docker
+
+env:
+  global:
+    - DOCKER_COMPOSE_VERSION=1.18.0
+
+before_install:
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then bash docker-compose.sh; fi
   - "cd {{cookiecutter.app_slug}}"
 
 install:
   - "pip install pipenv"
   - "pipenv install --dev"
 
+before_script:
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then docker-compose up --build -d; fi
+
 script:
   - flake8 .
   - python manage.py cov
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then docker-compose run web python manage.py cov; fi
+
+after_script:
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then docker-compose down; fi
