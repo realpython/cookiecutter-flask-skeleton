@@ -15,6 +15,9 @@ flask-migrate = "*"
 flask-sqlalchemy = "*"
 flask-wtf = "*"
 configparser = "*"
+coverage = "*"
+flask-debugtoolbar = "*"
+python-dotenv = "*"
 
 
 [dev-packages]
