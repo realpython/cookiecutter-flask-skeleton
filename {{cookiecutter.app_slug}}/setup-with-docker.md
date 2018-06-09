@@ -2,7 +2,7 @@
 
 Use this guide if you want to use Docker in your project.
 
-> Built with Docker v18.03.0-ce.
+> Built with Docker v18.03.1-ce.
 
 ## Getting Started
 

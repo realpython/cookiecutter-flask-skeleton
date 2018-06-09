@@ -1,10 +1,9 @@
-FROM python:3.6.5
+FROM python:3.6.5-slim
 
-# install environment dependencies
-RUN apt-get update -yqq \
-  && apt-get install -yqq --no-install-recommends \
-    netcat \
-  && apt-get -q clean
+# install netcat
+RUN apt-get update \
+  && apt-get -y install netcat \
+  && apt-get clean
 
 # set working directory
 RUN mkdir -p /usr/src/app
