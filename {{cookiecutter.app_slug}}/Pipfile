@@ -14,7 +14,7 @@ flask-login = "*"
 flask-migrate = "*"
 flask-sqlalchemy = "*"
 flask-wtf = "*"
-configparser = "*"
+psycopg2 = "*"
 
 
 [dev-packages]
@@ -27,4 +27,4 @@ flask-testing = "*"
 
 [requires]
 
-python_version = "3.6.4"
+python_version = "3.6"
