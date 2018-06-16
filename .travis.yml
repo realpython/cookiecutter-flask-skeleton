@@ -19,8 +19,7 @@ before_install:
   - "cd {{cookiecutter.app_slug}}"
 
 install:
-  - "pip install pipenv"
-  - "pipenv install --dev"
+  - "pip install -r requirements.txt"
 
 before_script:
   - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then docker-compose up --build -d; fi
