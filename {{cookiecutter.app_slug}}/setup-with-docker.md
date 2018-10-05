@@ -13,13 +13,13 @@ $ docker-compose up -d --build
 ```
 
 Create the database:
-
+-
 ```sh
-$ docker-compose run web python manage.py create_db
+$ docker-compose run web python manage.py create-db
 $ docker-compose run web python manage.py db init
 $ docker-compose run web python manage.py db migrate
-$ docker-compose run web python manage.py create_admin
-$ docker-compose run web python manage.py create_data
+$ docker-compose run web python manage.py create-admin
+$ docker-compose run web python manage.py create-data
 ```
 
 Access the application at the address [http://localhost:5002/](http://localhost:5002/)

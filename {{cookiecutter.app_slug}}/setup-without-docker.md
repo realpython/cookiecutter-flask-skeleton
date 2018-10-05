@@ -27,11 +27,11 @@ FLASK_DEBUG=1
 ### Create DB
 
 ```sh
-$ python manage.py create_db
+$ python manage.py create-db
 $ python manage.py db init
 $ python manage.py db migrate
-$ python manage.py create_admin
-$ python manage.py create_data
+$ python manage.py create-admin
+$ python manage.py create-data
 ```
 
 ### Run the Application
