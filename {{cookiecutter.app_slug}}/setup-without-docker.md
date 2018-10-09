@@ -11,7 +11,7 @@ Create and activate a virtual environment, and then install the requirements.
 Update *project/server/config.py*, and then run:
 
 ```sh
-$ export APP_NAME="Flask Skeleton"
+$ export APP_NAME="{{cookiecutter.app_name}}"
 $ export APP_SETTINGS="project.server.config.DevelopmentConfig"
 $ export FLASK_DEBUG=1
 ```
@@ -19,7 +19,7 @@ $ export FLASK_DEBUG=1
 Using [Pipenv](https://docs.pipenv.org/) or [python-dotenv](https://github.com/theskumar/python-dotenv)? Use the *.env* file to set environment variables:
 
 ```sh
-APP_NAME="Flask Skeleton"
+APP_NAME="{{cookiecutter.app_name}}"
 APP_SETTINGS="project.server.config.DevelopmentConfig"
 FLASK_DEBUG=1
 ```
