@@ -1,4 +1,4 @@
-# Flask Skeleton
+# {{cookiecutter.app_name}}
 
 ## Quick Start
 
