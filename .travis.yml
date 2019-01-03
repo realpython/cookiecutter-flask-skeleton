@@ -13,6 +13,7 @@ services:
 env:
   global:
     - DOCKER_COMPOSE_VERSION=1.18.0
+    - BLACK_VERSION=18.9b0
 
 before_install:
   - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then bash docker-compose.sh; fi
@@ -23,9 +24,10 @@ install:
 
 before_script:
   - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then docker-compose up --build -d; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then pip install black==$BLACK_VERSION; fi
 
 script:
-  - black --line-length 79 --check --diff .
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then black --line-length 79 --check --diff .; fi
   - flake8 .
   - python manage.py cov
   - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then docker-compose run web python manage.py cov; fi
