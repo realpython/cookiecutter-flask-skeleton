@@ -10,7 +10,7 @@ from project.server import db, bcrypt
 
 class User(db.Model):
 
-    __tablename__ = 'users'
+    __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     email = db.Column(db.String(255), unique=True, nullable=False)
@@ -21,8 +21,8 @@ class User(db.Model):
     def __init__(self, email, password, admin=False):
         self.email = email
         self.password = bcrypt.generate_password_hash(
-            password, current_app.config.get('BCRYPT_LOG_ROUNDS')
-        ).decode('utf-8')
+            password, current_app.config.get("BCRYPT_LOG_ROUNDS")
+        ).decode("utf-8")
         self.registered_on = datetime.datetime.now()
         self.admin = admin
 
@@ -39,4 +39,4 @@ class User(db.Model):
         return self.id
 
     def __repr__(self):
-        return '<User {0}>'.format(self.email)
+        return "<User {0}>".format(self.email)

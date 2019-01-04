@@ -18,12 +18,12 @@ cli = FlaskGroup(create_app=create_app)
 # code coverage
 COV = coverage.coverage(
     branch=True,
-    include='project/*',
+    include="project/*",
     omit=[
-        'project/tests/*',
-        'project/server/config.py',
-        'project/server/*/__init__.py'
-    ]
+        "project/tests/*",
+        "project/server/config.py",
+        "project/server/*/__init__.py",
+    ],
 )
 COV.start()
 
@@ -44,7 +44,7 @@ def drop_db():
 @cli.command()
 def create_admin():
     """Creates the admin user."""
-    db.session.add(User(email='ad@min.com', password='admin', admin=True))
+    db.session.add(User(email="ad@min.com", password="admin", admin=True))
     db.session.commit()
 
 
@@ -57,7 +57,7 @@ def create_data():
 @cli.command()
 def test():
     """Runs the unit tests without test coverage."""
-    tests = unittest.TestLoader().discover('project/tests', pattern='test*.py')
+    tests = unittest.TestLoader().discover("project/tests", pattern="test*.py")
     result = unittest.TextTestRunner(verbosity=2).run(tests)
     if result.wasSuccessful():
         sys.exit(0)
@@ -68,12 +68,12 @@ def test():
 @cli.command()
 def cov():
     """Runs the unit tests with coverage."""
-    tests = unittest.TestLoader().discover('project/tests')
+    tests = unittest.TestLoader().discover("project/tests")
     result = unittest.TextTestRunner(verbosity=2).run(tests)
     if result.wasSuccessful():
         COV.stop()
         COV.save()
-        print('Coverage Summary:')
+        print("Coverage Summary:")
         COV.report()
         COV.html_report()
         COV.erase()
@@ -85,8 +85,8 @@ def cov():
 @cli.command()
 def flake():
     """Runs flake8 on the project."""
-    subprocess.run(['flake8', 'project'])
+    subprocess.run(["flake8", "project"])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     cli()

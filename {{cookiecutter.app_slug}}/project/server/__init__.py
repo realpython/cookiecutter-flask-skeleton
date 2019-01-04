@@ -26,13 +26,14 @@ def create_app(script_info=None):
     # instantiate the app
     app = Flask(
         __name__,
-        template_folder='../client/templates',
-        static_folder='../client/static'
+        template_folder="../client/templates",
+        static_folder="../client/static",
     )
 
     # set config
     app_settings = os.getenv(
-        'APP_SETTINGS', 'project.server.config.DevelopmentConfig')
+        "APP_SETTINGS", "project.server.config.DevelopmentConfig"
+    )
     app.config.from_object(app_settings)
 
     # set up extensions
@@ -46,13 +47,15 @@ def create_app(script_info=None):
     # register blueprints
     from project.server.user.views import user_blueprint
     from project.server.main.views import main_blueprint
+
     app.register_blueprint(user_blueprint)
     app.register_blueprint(main_blueprint)
 
     # flask login
     from project.server.models import User
-    login_manager.login_view = 'user.login'
-    login_manager.login_message_category = 'danger'
+
+    login_manager.login_view = "user.login"
+    login_manager.login_message_category = "danger"
 
     @login_manager.user_loader
     def load_user(user_id):
@@ -61,23 +64,23 @@ def create_app(script_info=None):
     # error handlers
     @app.errorhandler(401)
     def unauthorized_page(error):
-        return render_template('errors/401.html'), 401
+        return render_template("errors/401.html"), 401
 
     @app.errorhandler(403)
     def forbidden_page(error):
-        return render_template('errors/403.html'), 403
+        return render_template("errors/403.html"), 403
 
     @app.errorhandler(404)
     def page_not_found(error):
-        return render_template('errors/404.html'), 404
+        return render_template("errors/404.html"), 404
 
     @app.errorhandler(500)
     def server_error_page(error):
-        return render_template('errors/500.html'), 500
+        return render_template("errors/500.html"), 500
 
     # shell context for flask cli
     @app.shell_context_processor
     def ctx():
-        return {'app': app, 'db': db}
+        return {"app": app, "db": db}
 
     return app
