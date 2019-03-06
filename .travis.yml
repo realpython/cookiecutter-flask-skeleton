@@ -27,7 +27,7 @@ before_script:
   - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then pip install black==$BLACK_VERSION; fi
 
 script:
-  - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then black --line-length 79 --check --diff .; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then black --line-length 88 --check --diff .; fi
   - flake8 .
   - python manage.py cov
   - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then docker-compose run web python manage.py cov; fi
