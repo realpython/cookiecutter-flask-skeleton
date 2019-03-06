@@ -15,8 +15,7 @@ $ export APP_NAME="{{cookiecutter.app_name}}"
 $ export APP_SETTINGS="project.server.config.ProductionConfig"
 $ export FLASK_DEBUG=0
 ```
-
-by default the app is set to use the production configuration, if you would like to use the development configuration you should alter the APP_SETTINGS environment variable.
+By default the app is set to use the production configuration. If you would like to use the development configuration, you can alter the `APP_SETTINGS` environment variable:
 
 ```sh
 $ export APP_SETTINGS="project.server.config.DevelopmentConfig"
