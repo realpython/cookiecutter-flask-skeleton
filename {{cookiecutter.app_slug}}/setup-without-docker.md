@@ -12,16 +12,16 @@ Update *project/server/config.py*, and then run:
 
 ```sh
 $ export APP_NAME="{{cookiecutter.app_name}}"
-$ export APP_SETTINGS="project.server.config.DevelopmentConfig"
-$ export FLASK_DEBUG=1
+$ export APP_SETTINGS="project.server.config.ProductionConfig"
+$ export FLASK_DEBUG=0
 ```
 
 Using [Pipenv](https://docs.pipenv.org/) or [python-dotenv](https://github.com/theskumar/python-dotenv)? Use the *.env* file to set environment variables:
 
 ```sh
 APP_NAME="{{cookiecutter.app_name}}"
-APP_SETTINGS="project.server.config.DevelopmentConfig"
-FLASK_DEBUG=1
+APP_SETTINGS="project.server.config.ProductionConfig"
+FLASK_DEBUG=0
 ```
 
 ### Create DB

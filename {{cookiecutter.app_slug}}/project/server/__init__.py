@@ -32,7 +32,7 @@ def create_app(script_info=None):
 
     # set config
     app_settings = os.getenv(
-        "APP_SETTINGS", "project.server.config.DevelopmentConfig"
+        "APP_SETTINGS", "project.server.config.ProductionConfig"
     )
     app.config.from_object(app_settings)
 
