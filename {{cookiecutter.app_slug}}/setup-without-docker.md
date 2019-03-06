@@ -23,6 +23,11 @@ $ export APP_SETTINGS="project.server.config.DevelopmentConfig"
 
 Using [Pipenv](https://docs.pipenv.org/) or [python-dotenv](https://github.com/theskumar/python-dotenv)? Use the *.env* file to set environment variables:
 
+```
+APP_NAME="{{cookiecutter.app_name}}"
+APP_SETTINGS="project.server.config.DevelopmentConfig"
+FLASK_DEBUG=1
+```
 
 ### Create DB
 
