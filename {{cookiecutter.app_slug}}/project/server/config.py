@@ -39,5 +39,7 @@ class ProductionConfig(BaseConfig):
     """Production configuration."""
 
     BCRYPT_LOG_ROUNDS = 13
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+    SQLALCHEMY_DATABASE_URI = os.environ.get(
+        "DATABASE_URL", "sqlite:///{0}".format(os.path.join(basedir, "prod.db"))
+    )
     WTF_CSRF_ENABLED = True
