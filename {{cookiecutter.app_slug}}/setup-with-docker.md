@@ -12,6 +12,9 @@ Update the environment variables in *docker-compose.yml*, and then build the ima
 $ docker-compose up -d --build
 ```
 
+by default the app is set to use the production configuration, if you would like to use the development configuration you should alter the APP_SETTINGS environment variable.
+
+
 Create the database:
 -
 ```sh

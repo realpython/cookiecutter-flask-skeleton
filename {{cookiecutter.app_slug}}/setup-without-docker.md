@@ -16,13 +16,14 @@ $ export APP_SETTINGS="project.server.config.ProductionConfig"
 $ export FLASK_DEBUG=0
 ```
 
-Using [Pipenv](https://docs.pipenv.org/) or [python-dotenv](https://github.com/theskumar/python-dotenv)? Use the *.env* file to set environment variables:
+by default the app is set to use the production configuration, if you would like to use the development configuration you should alter the APP_SETTINGS environment variable.
 
 ```sh
-APP_NAME="{{cookiecutter.app_name}}"
-APP_SETTINGS="project.server.config.ProductionConfig"
-FLASK_DEBUG=0
+$ export APP_SETTINGS="project.server.config.DevelopmentConfig"
 ```
+
+Using [Pipenv](https://docs.pipenv.org/) or [python-dotenv](https://github.com/theskumar/python-dotenv)? Use the *.env* file to set environment variables:
+
 
 ### Create DB
 
