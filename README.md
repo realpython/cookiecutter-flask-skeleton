@@ -1,3 +1,5 @@
+This project is no longer maintained. You can find the maintained version at [https://github.com/testdrivenio/cookiecutter-flask-skeleton](https://github.com/testdrivenio/cookiecutter-flask-skeleton)
+
 # Flask Skeleton
 
 Flask starter project for [Cookiecutter](https://github.com/audreyr/cookiecutter).
