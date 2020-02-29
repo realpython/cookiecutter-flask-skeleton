@@ -1,9 +1,10 @@
 language: python
 
 python:
+  - "3.8"
+  - "3.7"
   - "3.6"
   - "3.5"
-  - "3.4"
 
 sudo: required
 
@@ -13,7 +14,7 @@ services:
 env:
   global:
     - DOCKER_COMPOSE_VERSION=1.18.0
-    - BLACK_VERSION=18.9b0
+    - BLACK_VERSION=19.10b0
 
 before_install:
   - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then bash docker-compose.sh; fi
