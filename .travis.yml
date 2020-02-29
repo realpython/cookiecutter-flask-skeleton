@@ -27,6 +27,7 @@ install:
 before_script:
   - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then docker-compose up --build -d; fi
   - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then pip install black==$BLACK_VERSION; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == 3.4 ]]; then pip install coverage==4.5.4; fi
 
 script:
   - if [[ $TRAVIS_PYTHON_VERSION == 3.6 ]]; then black --line-length 79 --check --diff .; fi
