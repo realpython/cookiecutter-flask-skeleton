@@ -1,4 +1,4 @@
-FROM python:3.6.5-slim
+FROM python:3.8.1-slim
 
 # install netcat
 RUN apt-get update \
